@@ -85,7 +85,7 @@ jobs:
         id:  database
         if: steps.downloading.outputs.filename != '' && !cancelled() && !failure()
         run: |
-          python task.py --opt="delete" --con="${{ secrets.DB_CONNECT }}" --name="${{ steps.downloading.outputs.filename }}" --size="${{ steps.downloading.outputs.size }}" --cid="/wangwu/files/${{ steps.downloading.outputs.folder }}/${{ steps.downloading.outputs.filename }}"
+          python task.py --opt="delete" --con="${{ secrets.DB_CONNECT }}" --name="${{ steps.downloading.outputs.filename }}" --size="${{ steps.downloading.outputs.size }}" 
           echo "::set-output name=status::ok"
 
 
