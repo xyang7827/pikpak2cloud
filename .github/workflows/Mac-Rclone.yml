@@ -54,7 +54,9 @@ jobs:
         shell: bash
         env:
           RCLONE_ENV_FILE : ${{secrets.RCLONE_CONF}}
-        
+      - name: install postgresql
+        run: |
+          brew install postgresql
       - name: install prerequisites
         run: |
           python -m pip install --upgrade pip wheel
