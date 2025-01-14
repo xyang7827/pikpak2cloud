@@ -67,7 +67,7 @@ jobs:
         id: downloading
         run: |
           mkdir downloads
-          python task.py --opt="query" --con="${{ secrets.DB_CONNECT }}" --isnow=0
+          python task.py --opt="query" --con="${{ secrets.DB_CONNECT }}"
           filename=$(ls downloads | head -n1)
           folder=$(sh folder.sh $filename)
           echo "::set-output name=path::downloads/$filename"
@@ -87,7 +87,7 @@ jobs:
         id:  database
         if: steps.downloading.outputs.filename != '' && !cancelled() && !failure()
         run: |
-          python task.py --opt="delete" --con="${{ secrets.DB_CONNECT }}" --name="${{ steps.downloading.outputs.filename }}" --size="${{ steps.downloading.outputs.size }}" 
+          python task.py --opt="delete" --con="${{ secrets.DB_CONNECT }}" --name="${{ steps.downloading.outputs.filename }}"
           echo "::set-output name=status::ok"
 
 
