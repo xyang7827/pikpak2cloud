@@ -3,6 +3,11 @@
 # pikpak2cloud
 ###### 目前上传10G以上文件经常出错 尽量不要上传10G以上的大文件吧   
 ### 在网盘根目录建立encrypt_folder目录作为默认上传目录 
+# 250114更新：   
+注意使用postgresql的话链接形式为:
+```
+postgresql+psycopg2://user:password@host:port/dbname[?key=value&key=value...]
+```
 # 20230426 Alist上传基本完成 目前只能上传文件 需要添加secrets   
 ALIST_STORAGE_BODY：Alist添加存储的json对象的base64加密，有些难懂 建议看视频操作。稍后放上视频链接   
 支持Alist的话相当于支持了其它的网盘 已不仅限于阿里云了
@@ -87,6 +92,7 @@ config.json文件内容
 ```
    
 # Alist如果使用rclone copy出错的话，请改用alist的api上传具体看视频介绍   
+
 # 20230518新增加密转存至tmp.link功能    
 需要添加1个secrets:   
 TMP_TOKEN:可以在tmp.link后台的curl上传处获取   
