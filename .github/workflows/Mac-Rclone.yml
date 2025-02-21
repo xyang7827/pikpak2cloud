@@ -81,7 +81,7 @@ jobs:
       - name: rclone copy
         if: steps.downloading.outputs.filename != '' && !cancelled() && !failure()
         run: |
-          rclone copy ${{ steps.downloading.outputs.path }} files:/${{ steps.downloading.outputs.folder }} 
+          rclone copy ${{ steps.downloading.outputs.path }} alist:139/${{ steps.downloading.outputs.folder }} 
       
       - name: Save Data
         id:  database
@@ -99,7 +99,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.TOKEN }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/ykxVK8yL5L/pikpak2cloud/actions/workflows/Mac-Rclone.yml/dispatches \
+            https://api.github.com/repos/xyang7827/pikpak2cloud/actions/workflows/Mac-Rclone.yml/dispatches \
             -d '{"ref":"main","inputs":{}}' 
 
       - name: 通知上传结果
